@@ -5,7 +5,6 @@
 		description = "Allows building of projects that use the Jamplus buildsystem."
 		copyright = "LGPL"
 		category = "IDE Extensions"
-		namespace = "MonoDevelop.Jamplus"
 		version = "0.1">
 
 	<Runtime>
