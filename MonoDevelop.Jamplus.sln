@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoDevelop.Jamplus", "MonoDevelop.Jamplus.csproj", "{AE5D9B89-5F53-4B2E-84D8-8EF9AEC70BD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE5D9B89-5F53-4B2E-84D8-8EF9AEC70BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5D9B89-5F53-4B2E-84D8-8EF9AEC70BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5D9B89-5F53-4B2E-84D8-8EF9AEC70BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5D9B89-5F53-4B2E-84D8-8EF9AEC70BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MonoDevelop.Jamplus.csproj
+	EndGlobalSection
+EndGlobal

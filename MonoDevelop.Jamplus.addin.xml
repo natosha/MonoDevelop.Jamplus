@@ -1,0 +1,19 @@
+<Addin id = "MonoDevelop.Jamplus"
+		name = "Jamplus Integration for MonoDevelop"
+		author = "Na'Tosha Bard"
+		url = "https://github.com/natosha/MonoDevelop.Jamplus"
+		description = "Allows building of projects that use the Jamplus buildsystem."
+		copyright = "LGPL"
+		category = "IDE Extensions"
+		namespace = "MonoDevelop.Jamplus"
+		version = "0.1">
+
+	<Runtime>
+	</Runtime>
+
+	<Dependencies>
+		<Addin id="Core" version="2.6"/>
+		<Addin id="Ide" version="2.6"/>
+	</Dependencies>
+
+</Addin>
