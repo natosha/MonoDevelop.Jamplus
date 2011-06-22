@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using MonoDevelop.Projects;
 
 namespace MonoDevelop.Jamplus
 {
@@ -42,8 +43,46 @@ namespace MonoDevelop.Jamplus
 			return instance;
 		}
 		
+		public static void setOptions(JamplusOptions options)
+		{
+			options = null;
+		}
+		
+		public static JamplusOptions getOptions()
+		{
+			return options;
+		}
+		
 		// Data Members
 		private static JamplusIntegrationConfig instance = null;
+		private static JamplusOptions options = null;
+	}
+	
+	public class JamplusOptions
+	{
+		public JamplusOptions()
+		{
+		}
+		
+		public void setIntegrationEnabled(bool integrationEnabled)
+		{
+			this.integrationEnabled = integrationEnabled;
+		}
+		
+		public bool getIntegrationEnabled()
+		{
+			return this.integrationEnabled;
+		}
+		
+		public JamplusOptions Clone()
+		{
+			JamplusOptions retval = new JamplusOptions();
+			retval.setIntegrationEnabled(this.getIntegrationEnabled());
+			return retval;
+		}
+		
+		// Data Members
+		private bool integrationEnabled = false;
 	}
 }
 

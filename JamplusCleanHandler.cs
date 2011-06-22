@@ -36,8 +36,12 @@ namespace MonoDevelop.Jamplus
 		
 		protected override void Run ()
 		{
-			Console.Out.WriteLine("Run() Called for Clean!\n");
-			Console.Out.WriteLine("JamplusConfig: " + jamplusconfig.ToString());
+			if(JamplusIntegrationConfig.getOptions().getIntegrationEnabled())
+			{
+				Console.Out.WriteLine("Run() Called for Clean!\n");
+			} else {
+				base.Run();
+			}
 		}
 	}
 }

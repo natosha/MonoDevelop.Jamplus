@@ -1,10 +1,10 @@
 // 
-// JamplusClean.cs
+// JamplusOptionsPanelWidget.cs
 //  
 // Author:
-//       Na'Tosha Bard <natosha@unity3d.com;natosha@gmail.com>
+//       builduser <${AuthorEmail}>
 // 
-// Copyright (c) 2011 Na'Tosha Bard
+// Copyright (c) 2011 builduser
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,25 +24,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using MonoDevelop.Components.Commands;
+using MonoDevelop.Projects;
 
 namespace MonoDevelop.Jamplus
 {
-	public class JamplusCleanSolutionHandler : JamplusHandlerBase
+	[System.ComponentModel.ToolboxItem(true)]
+	public partial class JamplusOptionsPanelWidget : Gtk.Bin
 	{
-		public JamplusCleanSolutionHandler () : base()
+		public JamplusOptionsPanelWidget (Project project, JamplusOptions tmpData) : this()
 		{
-		}
-		
-		protected override void Run ()
-		{
-			if(JamplusIntegrationConfig.getOptions().getIntegrationEnabled())
+			this.data = tmpData;
+			if(null == data)
 			{
-				Console.Out.WriteLine("Run() Called for CleanSolution!\n");
-			} else {
-				base.Run();
+				data = new JamplusOptions();
+				this.IntegrationEnabledCheckbox.Active = false;
 			}
 		}
+
+		public JamplusOptionsPanelWidget()
+		{
+			this.Build();
+		}
+		
+		public bool ValidateChanges (Project project)
+		{
+			data.setIntegrationEnabled(IntegrationEnabledCheckbox.Active);
+			Console.Out.WriteLine("Called Validate Changes!\n");
+			JamplusIntegrationConfig.setOptions(data);
+			return true;
+		}
+		
+		public void Store (Project project)
+		{
+			Console.Out.WriteLine("FIXME: Implement Store!\n");
+		}
+		
+		//Data Members
+		JamplusOptions data = null;
 	}
 }
 

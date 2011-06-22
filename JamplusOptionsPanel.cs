@@ -1,10 +1,10 @@
 // 
-// JamplusClean.cs
+// JamplusOptionsPanel.cs
 //  
 // Author:
-//       Na'Tosha Bard <natosha@unity3d.com;natosha@gmail.com>
+//       natosha <${AuthorEmail}>
 // 
-// Copyright (c) 2011 Na'Tosha Bard
+// Copyright (c) 2011 natosha
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,24 +24,40 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using MonoDevelop.Components.Commands;
+using Gtk;
+using MonoDevelop.Ide.Gui.Dialogs;
+using MonoDevelop.Projects;
 
 namespace MonoDevelop.Jamplus
 {
-	public class JamplusCleanSolutionHandler : JamplusHandlerBase
+	public partial class JamplusOptionsPanel : ItemOptionsPanel
 	{
-		public JamplusCleanSolutionHandler () : base()
+		JamplusOptionsPanelWidget widget;
+
+		public JamplusOptionsPanel ()
 		{
 		}
-		
-		protected override void Run ()
+
+		public override Widget CreatePanelWidget()
 		{
-			if(JamplusIntegrationConfig.getOptions().getIntegrationEnabled())
-			{
-				Console.Out.WriteLine("Run() Called for CleanSolution!\n");
-			} else {
-				base.Run();
+			Project project = ConfiguredProject;
+			JamplusOptions data = project.ExtendedProperties ["MonoDevelop.Jamplus.JamplusInfo"] as JamplusOptions;
+			
+			JamplusOptions tmpData = null;
+			if (data != null) {
+				tmpData = (JamplusOptions) data.Clone ();
 			}
+			return (widget = new JamplusOptionsPanelWidget (project, tmpData));
+		}
+		
+		public override bool ValidateChanges ()
+		{
+			return widget.ValidateChanges (ConfiguredProject);
+		}
+		
+		public override void ApplyChanges ()
+		{
+			widget.Store (ConfiguredProject);
 		}
 	}
 }
