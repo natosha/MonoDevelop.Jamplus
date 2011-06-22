@@ -33,9 +33,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JamplusIntegration.cs" />
     <Compile Include="JamplusBuildHandler.cs" />
     <Compile Include="JamplusBuildSolutionHandler.cs" />
+    <Compile Include="JamplusIntegrationConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

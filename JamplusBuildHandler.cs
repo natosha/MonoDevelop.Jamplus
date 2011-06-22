@@ -32,12 +32,17 @@ namespace MonoDevelop.Jamplus
 	{
 		public JamplusBuildHandler ()
 		{
+			jamplusconfig = JamplusIntegrationConfig.getInstance();
 		}
 		
 		protected override void Run ()
 		{
 			Console.Out.WriteLine("Run() Called for Build!\n");
+			Console.Out.WriteLine("JamplusConfig: " + jamplusconfig.ToString());
 		}
+		
+		// Data Members
+		private JamplusIntegrationConfig jamplusconfig = null;
 	}
 }
 
