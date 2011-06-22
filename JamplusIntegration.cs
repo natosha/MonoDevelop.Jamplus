@@ -7,6 +7,7 @@ namespace MonoDevelop.Jamplus
 		public JamplusIntegration ()
 		{
 		}
+
 	}
 }
 
