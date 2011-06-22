@@ -40,6 +40,7 @@
     <Compile Include="JamplusCleanSolutionHandler.cs" />
     <Compile Include="JamplusRebuildHandler.cs" />
     <Compile Include="JamplusRebuildSolutionHandler.cs" />
+    <Compile Include="JamplusHandlerBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

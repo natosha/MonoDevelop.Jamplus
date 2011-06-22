@@ -1,10 +1,10 @@
 // 
-// JamplusBuildSolutionHandler.cs
+// JamplusHandlerBase.cs
 //  
 // Author:
-//       Na'Tosha Bard <natosha@unity3d.com;natosha@gmail.com>
+//       natosha <>
 // 
-// Copyright (c) 2011 Na'Tosha Bard
+// Copyright (c) 2011 natosha
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,17 +28,16 @@ using MonoDevelop.Components.Commands;
 
 namespace MonoDevelop.Jamplus
 {
-	public class JamplusBuildSolutionHandler : JamplusHandlerBase
+	public abstract class JamplusHandlerBase : CommandHandler
 	{
-		public JamplusBuildSolutionHandler () : base()
+		public JamplusHandlerBase ()
 		{
+			jamplusconfig = JamplusIntegrationConfig.getInstance();
 		}
 		
-		protected override void Run ()
-		{
-			Console.Out.WriteLine("Run() Called for BuildSolution!\n");
-			Console.Out.WriteLine("JamplusConfig: " + jamplusconfig.ToString());
-		}
+		// Data Members
+		protected JamplusIntegrationConfig jamplusconfig = null;
 	}
 }
+
 

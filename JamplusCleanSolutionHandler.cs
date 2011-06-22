@@ -2,9 +2,9 @@
 // JamplusClean.cs
 //  
 // Author:
-//       natosha <>
+//       Na'Tosha Bard <natosha@unity3d.com;natosha@gmail.com>
 // 
-// Copyright (c) 2011 natosha
+// Copyright (c) 2011 Na'Tosha Bard
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,11 +28,10 @@ using MonoDevelop.Components.Commands;
 
 namespace MonoDevelop.Jamplus
 {
-	public class JamplusCleanSolutionHandler : CommandHandler
+	public class JamplusCleanSolutionHandler : JamplusHandlerBase
 	{
-		public JamplusCleanSolutionHandler ()
+		public JamplusCleanSolutionHandler () : base()
 		{
-			jamplusconfig = JamplusIntegrationConfig.getInstance();
 		}
 		
 		protected override void Run ()
@@ -40,9 +39,6 @@ namespace MonoDevelop.Jamplus
 			Console.Out.WriteLine("Run() Called for CleanSolution!\n");
 			Console.Out.WriteLine("JamplusConfig: " + jamplusconfig.ToString());
 		}
-		
-		// Data Members
-		private JamplusIntegrationConfig jamplusconfig = null;
 	}
 }
 
