@@ -19,17 +19,33 @@
 	<Extension path = "/MonoDevelop/Ide/Commands">
 	<Command id = "MonoDevelop.Ide.Commands.ProjectCommands.Build"
         defaultHandler = "MonoDevelop.Jamplus.JamplusBuildHandler"
-        icon = "gtk-build"
-        shortcut = "F7"
         description = "Build"
         _label = "Build" />
 
 	<Command id = "MonoDevelop.Ide.Commands.ProjectCommands.BuildSolution"
         defaultHandler = "MonoDevelop.Jamplus.JamplusBuildSolutionHandler"
-        icon = "gtk-build-solution"
-        shortcut = "F8"
-        description = "Build"
+        description = "Build Solution"
         _label = "Build" />
+
+	<Command id = "MonoDevelop.Ide.Commands.ProjectCommands.Rebuild"
+        defaultHandler = "MonoDevelop.Jamplus.JamplusRebuildHandler"
+        description = "Clean"
+        _label = "Rebuild" />
+
+	<Command id = "MonoDevelop.Ide.Commands.ProjectCommands.RebuildSolution"
+        defaultHandler = "MonoDevelop.Jamplus.JamplusRebuildSolutionHandler"
+        description = "Clean"
+        _label = "Rebuild Solution" />
+
+	<Command id = "MonoDevelop.Ide.Commands.ProjectCommands.Clean"
+        defaultHandler = "MonoDevelop.Jamplus.JamplusCleanHandler"
+        description = "Clean"
+        _label = "Clean" />
+
+	<Command id = "MonoDevelop.Ide.Commands.ProjectCommands.CleanSolution"
+        defaultHandler = "MonoDevelop.Jamplus.JamplusCleanSolutionHandler"
+        description = "Clean Solution"
+        _label = "Clean Solution" />
 
 	</Extension>
 
