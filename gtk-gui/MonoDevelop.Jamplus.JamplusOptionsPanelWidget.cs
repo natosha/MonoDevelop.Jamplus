@@ -4,11 +4,19 @@ namespace MonoDevelop.Jamplus
 {
 	public partial class JamplusOptionsPanelWidget
 	{
-		private global::Gtk.Frame frame1;
+		private global::Gtk.Frame MainFrame;
 
-		private global::Gtk.Alignment GtkAlignment;
+		private global::Gtk.VBox MainVBox;
 
 		private global::Gtk.CheckButton IntegrationEnabledCheckbox;
+
+		private global::Gtk.ComboBox ConfigurationsComboBox;
+
+		private global::Gtk.HBox hbox6;
+
+		private global::Gtk.Label JamplusCommandLabel;
+
+		private global::Gtk.Entry CommandLabel;
 
 		private global::Gtk.Label TitleLabel;
 
@@ -19,32 +27,73 @@ namespace MonoDevelop.Jamplus
 			global::Stetic.BinContainer.Attach (this);
 			this.Name = "MonoDevelop.Jamplus.JamplusOptionsPanelWidget";
 			// Container child MonoDevelop.Jamplus.JamplusOptionsPanelWidget.Gtk.Container+ContainerChild
-			this.frame1 = new global::Gtk.Frame ();
-			this.frame1.Name = "frame1";
-			this.frame1.ShadowType = ((global::Gtk.ShadowType)(0));
-			// Container child frame1.Gtk.Container+ContainerChild
-			this.GtkAlignment = new global::Gtk.Alignment (0f, 0f, 1f, 1f);
-			this.GtkAlignment.Name = "GtkAlignment";
-			this.GtkAlignment.LeftPadding = ((uint)(12));
-			// Container child GtkAlignment.Gtk.Container+ContainerChild
+			this.MainFrame = new global::Gtk.Frame ();
+			this.MainFrame.Name = "MainFrame";
+			this.MainFrame.ShadowType = ((global::Gtk.ShadowType)(0));
+			// Container child MainFrame.Gtk.Container+ContainerChild
+			this.MainVBox = new global::Gtk.VBox ();
+			this.MainVBox.Name = "MainVBox";
+			this.MainVBox.Spacing = 6;
+			this.MainVBox.BorderWidth = ((uint)(6));
+			// Container child MainVBox.Gtk.Box+BoxChild
 			this.IntegrationEnabledCheckbox = new global::Gtk.CheckButton ();
 			this.IntegrationEnabledCheckbox.CanFocus = true;
 			this.IntegrationEnabledCheckbox.Name = "IntegrationEnabledCheckbox";
 			this.IntegrationEnabledCheckbox.Label = global::Mono.Unix.Catalog.GetString ("Enable Jam Integration");
 			this.IntegrationEnabledCheckbox.DrawIndicator = true;
 			this.IntegrationEnabledCheckbox.UseUnderline = true;
-			this.GtkAlignment.Add (this.IntegrationEnabledCheckbox);
-			this.frame1.Add (this.GtkAlignment);
+			this.MainVBox.Add (this.IntegrationEnabledCheckbox);
+			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.MainVBox[this.IntegrationEnabledCheckbox]));
+			w1.Position = 0;
+			w1.Expand = false;
+			w1.Fill = false;
+			// Container child MainVBox.Gtk.Box+BoxChild
+			this.ConfigurationsComboBox = global::Gtk.ComboBox.NewText ();
+			this.ConfigurationsComboBox.Name = "ConfigurationsComboBox";
+			this.MainVBox.Add (this.ConfigurationsComboBox);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.MainVBox[this.ConfigurationsComboBox]));
+			w2.Position = 1;
+			w2.Expand = false;
+			w2.Fill = false;
+			// Container child MainVBox.Gtk.Box+BoxChild
+			this.hbox6 = new global::Gtk.HBox ();
+			this.hbox6.Name = "hbox6";
+			this.hbox6.Spacing = 6;
+			// Container child hbox6.Gtk.Box+BoxChild
+			this.JamplusCommandLabel = new global::Gtk.Label ();
+			this.JamplusCommandLabel.Name = "JamplusCommandLabel";
+			this.JamplusCommandLabel.LabelProp = global::Mono.Unix.Catalog.GetString ("Jamplus Command:");
+			this.hbox6.Add (this.JamplusCommandLabel);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.JamplusCommandLabel]));
+			w3.Position = 0;
+			w3.Expand = false;
+			w3.Fill = false;
+			// Container child hbox6.Gtk.Box+BoxChild
+			this.CommandLabel = new global::Gtk.Entry ();
+			this.CommandLabel.CanFocus = true;
+			this.CommandLabel.Name = "CommandLabel";
+			this.CommandLabel.IsEditable = true;
+			this.CommandLabel.InvisibleChar = '•';
+			this.hbox6.Add (this.CommandLabel);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.CommandLabel]));
+			w4.Position = 1;
+			this.MainVBox.Add (this.hbox6);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.MainVBox[this.hbox6]));
+			w5.Position = 2;
+			w5.Expand = false;
+			w5.Fill = false;
+			this.MainFrame.Add (this.MainVBox);
 			this.TitleLabel = new global::Gtk.Label ();
 			this.TitleLabel.Name = "TitleLabel";
 			this.TitleLabel.LabelProp = global::Mono.Unix.Catalog.GetString ("<b>Jamplus Integration</b>");
 			this.TitleLabel.UseMarkup = true;
-			this.frame1.LabelWidget = this.TitleLabel;
-			this.Add (this.frame1);
+			this.MainFrame.LabelWidget = this.TitleLabel;
+			this.Add (this.MainFrame);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
 			this.Hide ();
+			this.IntegrationEnabledCheckbox.Toggled += new global::System.EventHandler (this.enableJamplusIntegrationButtonClicked);
 		}
 	}
 }

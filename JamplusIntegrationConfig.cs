@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Collections.Generic;
 using MonoDevelop.Projects;
 
 namespace MonoDevelop.Jamplus
@@ -74,15 +75,36 @@ namespace MonoDevelop.Jamplus
 			return this.integrationEnabled;
 		}
 		
+		public void addCommand(string configurationName, string jamplusCommand)
+		{
+			configurationJamplusCommmands.Add(configurationName, jamplusCommand);
+		}
+		
+		public string getCommand(string configurationName)
+		{
+			if(configurationJamplusCommmands.ContainsKey(configurationName))
+			{
+				return configurationJamplusCommmands[configurationName];
+			} else {
+				return "";
+			}
+		}
+		
 		public JamplusOptions Clone()
 		{
 			JamplusOptions retval = new JamplusOptions();
 			retval.setIntegrationEnabled(this.getIntegrationEnabled());
+			foreach(KeyValuePair<string, string> pair in configurationJamplusCommmands)
+			{
+				retval.addCommand(pair.Key, pair.Value);	
+			}
 			return retval;
 		}
 		
 		// Data Members
 		private bool integrationEnabled = false;
+		Dictionary<string, string> configurationJamplusCommmands =
+			new Dictionary<string, string>();
 	}
 }
 

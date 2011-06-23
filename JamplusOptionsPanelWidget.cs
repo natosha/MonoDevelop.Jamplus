@@ -24,7 +24,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Collections;
 using MonoDevelop.Projects;
+
+using Gtk;
 
 namespace MonoDevelop.Jamplus
 {
@@ -34,10 +37,16 @@ namespace MonoDevelop.Jamplus
 		public JamplusOptionsPanelWidget (Project project, JamplusOptions tmpData) : this()
 		{
 			this.data = tmpData;
+			this.project = project;
 			if(null == data)
 			{
 				data = new JamplusOptions();
 				this.IntegrationEnabledCheckbox.Active = false;
+			}
+			ConfigurationsComboBox.
+			foreach(String configuration in project.GetConfigurations())
+			{
+			
 			}
 		}
 
@@ -59,8 +68,18 @@ namespace MonoDevelop.Jamplus
 			Console.Out.WriteLine("FIXME: Implement Store!\n");
 		}
 		
+		protected virtual void enableJamplusIntegrationButtonClicked (object sender, System.EventArgs e)
+		{
+			bool sensitivity = IntegrationEnabledCheckbox.Active;
+			ConfigurationsComboBox.Sensitive = sensitivity;
+			JamplusCommandLabel.Sensitive = sensitivity;
+			CommandLabel.Sensitive = sensitivity;
+		}
+		
+		
 		//Data Members
 		JamplusOptions data = null;
+		Project project = null;
 	}
 }
 
